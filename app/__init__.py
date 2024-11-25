@@ -79,7 +79,7 @@ def update_volume_graph(selected_year, selected_country, selected_segmentation):
                  title=f'Volume de Vendas ({selected_year}, {selected_country}, {selected_segmentation})')
     return fig
 
-@app_dash.callback(
+@app.callback(
     Output('growth-graph', 'figure'),
     [Input('year-filter', 'value'), Input('country-filter', 'value')]
 )
