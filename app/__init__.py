@@ -247,6 +247,10 @@ def update_geo_map(selected_year, selected_country):
     fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
     return fig
 
+# Rota principal para exibir o Dash diretamente
+@server.route('/')
+def index():
+    return app.index()  # Carrega o dashboard diretamente na rota '/'
     
 # Executar o servidor
 if __name__ == '__main__':
