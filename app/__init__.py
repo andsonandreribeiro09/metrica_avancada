@@ -10,10 +10,10 @@ data = pd.read_excel('Dados_coordenada_V3 (1).xlsx')
 server = Flask(__name__)
 
 # Inicialização do Dash
-app_dash = Dash(__name__, server=server, url_base_pathname='/dashboard/')
+app = Dash(__name__, server=server, url_base_pathname='/dashboard/')
 
 # Layout do Dash
-app_dash.layout = html.Div([
+app.layout = html.Div([
     html.H1("Métricas Avançadas"),
     
     # Filtros
@@ -65,7 +65,7 @@ app_dash.layout = html.Div([
 ])
 
 # Callbacks para gráficos
-@app_dash.callback(
+@app.callback(
     Output('volume-graph', 'figure'),
     [Input('year-filter', 'value'), Input('country-filter', 'value'), Input('segmentation-filter', 'value')]
 )
@@ -117,7 +117,7 @@ def update_growth_graph(selected_year, selected_country):
     return fig
 
 
-@app_dash.callback(
+@app.callback(
     Output('market-share-graph', 'figure'),
     [Input('year-filter', 'value'), Input('country-filter', 'value')]
 )
@@ -155,7 +155,7 @@ def update_market_share_graph(selected_year, selected_country):
     return fig
 
 
-@app_dash.callback(
+@app.callback(
     Output('top-brands-graph', 'figure'),
     [Input('year-filter', 'value'), Input('country-filter', 'value')]
 )
@@ -187,7 +187,7 @@ def update_top_brands_graph(selected_year, selected_country):
     )
     return fig
 
-@app_dash.callback(
+@app.callback(
     Output('premium-graph', 'figure'),
     [Input('year-filter', 'value'), Input('country-filter', 'value')]
 )
@@ -224,7 +224,7 @@ def update_premium_graph(selected_year, selected_country):
     )
     return fig
 
-@app_dash.callback(
+@app.callback(
     Output('geo-map', 'figure'),
     [Input('year-filter', 'value'), Input('country-filter', 'value')]
 )
@@ -249,10 +249,10 @@ def update_geo_map(selected_year, selected_country):
 
     
 # Rota principal no Flask
-@server.route('/')
+@app.route('/')
 def index():
     return "Bem-vindo ao Dashboard! Acesse /dashboard para visualizar os gráficos."
 
 # Executar o servidor
 if __name__ == '__main__':
-    server.run( )
+    app.run( )
