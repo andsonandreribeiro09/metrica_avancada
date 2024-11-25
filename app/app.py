@@ -251,7 +251,7 @@ def update_geo_map(selected_year, selected_country):
 # Rota principal no Flask
 @server.route('/')
 def index():
-    return app.index()
+    return server.index()
 
 # Executar o servidor
 if __name__ == '__main__':
