@@ -1,4 +1,4 @@
-from flask import Flask
+rom flask import Flask
 from dash import Dash, dcc, html, Input, Output
 import pandas as pd
 import plotly.express as px
@@ -255,4 +255,4 @@ def index():
 
 # Executar o servidor
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run( )
