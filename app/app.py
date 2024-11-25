@@ -255,4 +255,4 @@ def index():
 
 # Executar o servidor
 if __name__ == '__main__':
-    server.run( )
+    app.run( )
