@@ -33,5 +33,4 @@ urllib3==2.2.2
 Werkzeug==3.0.4
 xyzservices==2024.6.0
 zipp==3.20.1
-dash-leaflet==0.1.24
 geopandas==0.14.0
